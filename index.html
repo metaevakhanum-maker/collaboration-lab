@@ -13,7 +13,7 @@
      <script>
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const email = document.getElementById('emailInput').value;
+            const email = document.getElementById('emailInput').value.trim();
             const errorMessage = document.getElementById('errorMessage');
 
             if (email === '' || !email.includes('@') || !email.includes('.')) {
