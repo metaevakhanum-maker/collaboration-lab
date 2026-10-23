@@ -6,9 +6,23 @@
 <body>
     <h1>Свяжитесь с нами</h1>
     <form id="contactForm">
-        <label>Email: <input type="text" id="emailInput"></label>
+        <label>Email: <input type="text" id="emailInput"> required</label>
         <button type="submit">Отправить</button>
     </form>
     <p id="errorMessage" style="color: red; display: none;">Введите корректный email</p>
+     <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (email === '' || !email.includes('@') || !email.includes('.')) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+                alert('Успешно отправлено!');
+            }
+        });
+    </script>
 </body>
 </html>
